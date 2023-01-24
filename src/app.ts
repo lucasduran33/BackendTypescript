@@ -6,10 +6,12 @@ import db from './config/mongo'
 const PORT = process.env.PORT || 3001
 const app = express()
 
-app.use(cors)
+app.use(cors())
 app.use(express.json())
 app.use(router)
-db().then(() => console.log('Conexxion con db lista'));
+
+
+db().then(() => console.log('Conexion con db lista'));
 app.listen(PORT, () => console.log(`Escuchando en ${PORT}`))
 
 
