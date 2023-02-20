@@ -6,4 +6,4 @@ router.post("/register",registerCtrl)
 router.post("/login",loginCtrl)
 
 
-export{router}
+export{router} 

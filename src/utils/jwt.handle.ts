@@ -10,7 +10,14 @@ const generateToken = async (id:string) => {
 }
 
 
-const verifyToken = async () => {
+const verifyToken = async (jwt : string) => {
+    try{
+        console.log(jwt, 'soy jwt del verify')
+        const isOk = await verify(jwt,JWT_SE); 
+        return isOk
+    }catch(e){
+        console.log(e, 'is not possible enable connection')
+    }
 
 }
 
