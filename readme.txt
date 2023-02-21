@@ -40,3 +40,33 @@ El proyecto "Crud-TS" es una aplicación CRUD simple desarrollada en TypeScript 
 La aplicación proporciona una interfaz de programación de aplicaciones (API) que permite a los usuarios gestionar una lista de productos. La aplicación se puede ejecutar en su computadora después de seguir los pasos en la sección "Inicio rápido".
 
 Este proyecto puede ser utilizado
+
+
+
+DOCKER DOCUMENTS FILES 
+
+Este Dockerfile tiene dos fases, una para desarrollo y otra para producción.
+
+La primera línea especifica la imagen de Docker que se utilizará como base para el contenedor: "node:16-alpine as development". Esto significa que se usará la imagen de Node.js en su versión 16 y la variante alpina, y se etiquetará como "development".
+
+La siguiente línea establece el directorio de trabajo dentro del contenedor como "/usr/src/app".
+
+La siguiente línea copia los archivos "package.json" y "package-lock.json" (o "yarn.lock") del directorio actual (donde se encuentra el archivo Dockerfile) al directorio "/usr/src/app" del contenedor.
+
+La siguiente línea ejecuta el comando "npm install" dentro del contenedor para instalar las dependencias del proyecto. Esto asegura que todas las dependencias están disponibles dentro del contenedor.
+
+La siguiente línea copia todo el contenido del directorio actual al directorio "/usr/src/app" del contenedor.
+
+La siguiente línea ejecuta el comando "npm run build" dentro del contenedor, lo que construye la aplicación en el directorio "/usr/src/app/dist".
+
+La siguiente línea establece la segunda fase de la imagen, etiquetada como "production". También define la variable de entorno "NODE_ENV" con el valor de la variable de argumento "NODE_ENV" que se pasó al comando "docker build" (o "production" si no se proporciona un valor para la variable de argumento).
+
+La siguiente línea establece el directorio de trabajo dentro del contenedor como "/usr/src/app".
+
+La siguiente línea copia los archivos "package.json" y "package-lock.json" (o "yarn.lock") del directorio actual (donde se encuentra el archivo Dockerfile) al directorio "/usr/src/app" del contenedor.
+
+La siguiente línea ejecuta el comando "npm ci --only=production" dentro del contenedor. Esto instala solo las dependencias de producción (omitidas durante el proceso de desarrollo) en el directorio "/usr/src/app/node_modules" del contenedor.
+
+La siguiente línea copia el contenido del directorio "/usr/src/app/dist" de la fase de desarrollo al directorio "/usr/src/app/dist" de la fase de producción.
+
+Finalmente, la última línea establece el comando predeterminado que se ejecutará cuando el contenedor se inicie. En este caso, se ejecutará la aplicación con el comando "node dist/app.js".
