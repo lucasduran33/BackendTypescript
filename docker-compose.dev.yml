@@ -1,13 +1,13 @@
-VERSION: "3.4"
+version: "3.4"
 
 services:
-api:
-build:
-context: .
-target: development 
-volumes:
-- ./:/usr/src/app
-- /usr/src/app/noded_modules
-ports:
--   3000:3000
-command: npm run dev
+  api:
+    build:
+      context: .
+      target: development 
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev

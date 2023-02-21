@@ -70,3 +70,15 @@ La siguiente línea ejecuta el comando "npm ci --only=production" dentro del con
 La siguiente línea copia el contenido del directorio "/usr/src/app/dist" de la fase de desarrollo al directorio "/usr/src/app/dist" de la fase de producción.
 
 Finalmente, la última línea establece el comando predeterminado que se ejecutará cuando el contenedor se inicie. En este caso, se ejecutará la aplicación con el comando "node dist/app.js".
+
+
+
+
+Commandos : 
+Para Desarrollo:
+docker compose -f docker-compose.dev.yml up
+
+Para Produccion
+docker compose up --build
+
+
