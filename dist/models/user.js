@@ -6,6 +6,10 @@ const UserSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    last_name: {
+        type: String,
+        required: true,
+    },
     password: {
         type: String,
         required: true,
@@ -15,9 +19,9 @@ const UserSchema = new mongoose_1.Schema({
         required: true,
         unique: true,
     },
-    description: {
-        type: String,
-        default: 'description not found '
+    age: {
+        type: Number,
+        deafult: 18
     },
 }, {
     timestamps: true,

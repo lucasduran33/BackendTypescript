@@ -2,5 +2,6 @@ import {Auth} from './auth.interface'
 
 export interface User extends Auth {
 name: string;
-description: string,
+last_name:string,
+age: number,
 }

@@ -3,7 +3,7 @@ import {connect, set} from 'mongoose'
 
 async function dbConnect () : Promise<void>{
  try{
-    set('strictQuery', true); //Evita 
+    set('strictQuery', false); //Evita 
 
     const DB_URI = <string>process.env.DB_URI;
     await connect(DB_URI)

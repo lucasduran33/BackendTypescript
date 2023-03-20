@@ -14,7 +14,7 @@ const mongoose_1 = require("mongoose");
 function dbConnect() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            (0, mongoose_1.set)('strictQuery', true); //Evita 
+            (0, mongoose_1.set)('strictQuery', false); //Evita 
             const DB_URI = process.env.DB_URI;
             yield (0, mongoose_1.connect)(DB_URI);
             return Promise.resolve();

@@ -4,6 +4,16 @@ import { verifyToken } from "../utils/jwt.handle";
 import { RequestExt } from '../interfaces/reqext.interface'
 
 
+
+
+const publicAcces = async (req: RequestExt, res:Response, next:NextFunction ) => {
+next()
+
+}
+
+
+
+
 const checkJwt = async (req: RequestExt, res:Response, next:NextFunction ) => {
 try{
 const jwtByUser = req.headers.authorization || null;  //Cuidado con romper en null xq split is null
